@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/CSS.css">
+    <script src="javascript.js" charset="utf-8">
+      var auxLArray = new Array(); var auxSArray = new Array();
+      function CD() {
+        var l = document.getElementById('L').value;
+        var s = document.getElementById('S').value;
+        localStorage.setItem("L", l); localStorage.L = l;
+        localStorage.setItem("S", s); localStorage.S = s;
+        auxLArray.push(l); auxSArray.push(s);
+        localStorage.LArray = auxLArray;
+        localStorage.setItem("LArray", auxLArray);
+        localStorage.SArray = auxSArray;
+        localStorage.setItem("SArray", auxSArray);
+        console.log(localStorage.LArray, localStorage.SArray);
+        alert("Perfeito\nL: " + localStorage.L
+          + "\nS: " + localStorage.S);
+      }
+    </script>
+  </head>
+
+  <body>
+    <input type="text" id="LAutenticacao" value="">
+    <input type="password" id="SAutenticacao" value="">
+    <input type="submit" value="CLICK" onclick="logar()">
+  </body>
+
+</html>

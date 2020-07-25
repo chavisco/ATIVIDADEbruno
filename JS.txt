@@ -1,0 +1,58 @@
+
+localStorage.L;
+localStorage.S;
+
+localStorage.LArray;
+localStorage.SArray;
+
+var auxLArray = new Array();
+var auxSArray = new Array();
+
+function cadastrarDados(){
+  var l = document.getElementById('L').value;
+  var s = document.getElementById('S').value;
+
+  localStorage.setItem("L", l);localStorage.L = l;
+  localStorage.setItem("S", s);localStorage.S = s;
+
+  auxLArray.push(l);
+  auxSArray.push(s);
+
+  localStorage.LArray = auxLArray;
+  localStorage.setItem("LArray", auxLArray);
+  localStorage.SArray = auxSArray;
+  localStorage.setItem("SArray", auxSArray);
+
+  console.log(localStorage.LArray, localStorage.SArray);
+  alert("Sucesso\nL: "+localStorage.L 
+  + "\nS: " + localStorage.S);
+}
+
+function logar(){
+	var l_inf = document.getElementById('LAutenticacao').value;
+	var s_inf = document.getElementById('SAutenticacao').value;
+
+	if(l_inf == localStorage.L && s_inf == localStorage.S){
+	alert("Math");
+	}
+
+	var l = localStorage.LArray.split(",");
+	var l = localStorage.getItem("LArray").split(",");
+	var s = localStorage.SArray.split(",");
+	var s = localStorage.getItem("SArray").split(",");
+	
+	console.log(l,s);
+	alert("L:"+ l_inf + "\nS: " + s_inf);
+	var LO = false;
+	for(var i=0; i<l.length; i++){
+	if(l_inf == l[i] && s_inf == s[i]){
+	  alert("Match -ainda nao cadastrado");
+	  LO = true;
+	  window.open('home.html','janela');
+	}
+	}
+	if(LO == false){
+	alert("ainda nao cadastrado");
+	}
+	console.log("L Storage:\n"+localStorage.LArray, "\nSs Storage:\n"+localStorage.SArray);
+}

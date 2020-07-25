@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+	<head>
+		<link rel="stylesheet" href="css2/CSS2.css">
+		<meta charset="utf-8">
+		<script src="javascript.js" charset="utf-8">
+
+			function logar() {
+				var l_inf = document.getElementById('LA').value;
+				var s_inf = document.getElementById('SA').value;
+
+				if (l_inf == localStorage.L && s_inf == localStorage.s) {
+					alert("Math");
+				}
+
+				var l = localStorage.LArray.split(",");
+				var l = localStorage.getItem("LArray").split(",");
+				var s = localStorage.SArray.split(",");
+				var s = localStorage.getItem("SArray").split(",");
+
+				console.log(l, s);
+				alert("L" + l_inf + "\nS" + s_inf);
+				var logado = false;
+				for (var i = 0; i < l.length; i++) {
+					if (l_inf == l[i] && s_inf == s[i]) {
+						alert("Match -Nao cadastrado");
+						logado = true;
+						window.open('home.html', 'janela');
+					}
+				}
+				if (logado == false) {
+					alert("Nao cadastrado");
+				}
+				console.log("L Storage:\n" + localStorage.LArray, "\nSs Storage:\n" + localStorage.SArray);
+			}
+
+		</script>
+		<title></title>
+	</head>
+
+	<body>
+		<input type="text" id="L" value="">
+		<input type="password" id="S" value="">
+		<input type="submit" value="Cadastrar" onclick="cadastrarDados()">
+	</body>
+
+</html>
